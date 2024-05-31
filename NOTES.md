@@ -7,4 +7,6 @@
 7. Import it https://github.com/scratchmex/pgdump2sqlite?tab=readme-ov-file
 8. Start logical replication @ the LSN
 
-Need to re-form the snapshot to include `_0_version` which we can bump on writes.
+---
+
+Could do all the `copies` in a `TX` and report the `SNAPSHOT` name as well as `WAL LSN` so we can resume replication after importing the export.

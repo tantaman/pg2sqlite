@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "copy pg to sqlite",
   "main": "sync.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dump": "node --env-file=../.dev.vars dist/dump.js",
+    "dump": "tsc; node --env-file=../.dev.vars dist/dump.js",
     "build": "tsc"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^20.12.13",
+    "@types/pg": "^8.11.6",
+    "pg": "^8.11.5",
     "postgres": "^3.4.4",
     "typescript": "^5.4.5"
   }

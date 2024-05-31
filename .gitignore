@@ -1,3 +1,7 @@
 .dev.vars
 node_modules/
 dist/
+dump.sql
+test.db
+test.sql
+.DS_Store
