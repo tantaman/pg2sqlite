@@ -1,0 +1,17 @@
+{
+  "name": "initial-sync",
+  "version": "1.0.0",
+  "description": "copy pg to sqlite",
+  "main": "sync.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dump": "node --env-file=../.dev.vars dist/dump.js",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "postgres": "^3.4.4",
+    "typescript": "^5.4.5"
+  }
+}
