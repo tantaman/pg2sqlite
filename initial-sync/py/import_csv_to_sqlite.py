@@ -12,7 +12,7 @@ def import_csv_to_sqlite(csv_directory, sqlite_db_file):
         csv_file_path = os.path.join(csv_directory, csv_file)
         
         # Construct the SQLite import command
-        sqlite_command = f'sqlite3 {sqlite_db_file} ".mode csv" ".import {csv_file_path} {table_name}"'
+        sqlite_command = f'sqlite3 {sqlite_db_file} "PRAGMA foreign_keys = 0" ".mode csv" ".import {csv_file_path} {table_name}"'
         
         try:
             # Run the SQLite import command

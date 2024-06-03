@@ -7,11 +7,10 @@ def export_tables_to_csv(postgres_conn_str, output_dir):
     conn = psycopg2.connect(postgres_conn_str)
     cursor = conn.cursor()
 
-    # TODO:
-    # 1. do all copies in a transaction
-    # 2. report the SNAPSHOT_NAME
-    # 3. Report the WAL LSN
-    # 4. Commit
+    conn.autocommit = False
+    cursor.execute("SELECT pg_current_wal_lsn();")
+    wal_lsn = cursor.fetchone()[0]
+    print(f"Current WAL LSN: {wal_lsn}")
 
     # Fetch all table names
     cursor.execute("""
@@ -33,6 +32,7 @@ def export_tables_to_csv(postgres_conn_str, output_dir):
             cursor.copy_expert(f'COPY "{table_name}" TO STDOUT WITH CSV HEADER', f)
         print(f"{table_name} exported to {output_file}")
 
+    conn.commit()
     cursor.close()
     conn.close()
     print("All tables have been exported.")

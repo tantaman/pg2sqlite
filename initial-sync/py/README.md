@@ -24,7 +24,7 @@ This project provides a script to convert PostgreSQL table schemas to SQLite-com
 
 1. Run the script with the PostgreSQL connection string and the SQLite DB file name as arguments:
     ```sh
-    python convert.py <postgres_connection_string> <sqlite_db_file>
+    python convert-schema.py <postgres_connection_string> <sqlite_db_file>
     ```
 
     Example:
