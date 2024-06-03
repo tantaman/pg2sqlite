@@ -1,3 +1,0 @@
-[submodule "initial-sync/pgdump2sqlite"]
-	path = initial-sync/pgdump2sqlite
-	url = git@github.com:scratchmex/pgdump2sqlite.git
