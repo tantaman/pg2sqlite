@@ -23,12 +23,12 @@ A script is included to convert Postgres schemas to SQLite compatible schemas us
 
 After importing these dumps into SQLite you can then replicate from PG to SQLite as we capture `snapshot name` and `WAL LSN` of the export.
 
-Usage:
+# Usage:
 
 There's three scripts (under initial-sync/py) meant to be used in turn.
 
-1. convert-schema.py <postgres_connection_string> <out.sql>
+1. `convert-schema.py <postgres_connection_string> <out.sql>`
    1. After this step, apply `out.sql` to your sqlite db
-2. export_to_csv.py <postgres_connection_string> <csv_directory>
+2. `export_to_csv.py <postgres_connection_string> <csv_directory>`
    1. This will report `WAL LSN` if you intend to sync with logical replication after initial import.
-3. import_csv_to_sqlite.py <csv_directory> <sqlite_db_file_name>
+3. `import_csv_to_sqlite.py <csv_directory> <sqlite_db_file_name>`
